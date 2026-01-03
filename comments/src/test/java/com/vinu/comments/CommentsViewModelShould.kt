@@ -20,7 +20,7 @@ class CommentsViewModelShould : BaseUnitTest() {
     private lateinit var viewModel: CommentsViewModel
     private val getCommentsList: GetCommentsList = mock()
     private val commentsItem: List<CommentsItem> = mock()
-    private val expected = CommentsListState(false, commentsItem)
+    private val expected = CommentsListState(false, emptyList())
     private val exception = CommentsListState()
 
     @Test

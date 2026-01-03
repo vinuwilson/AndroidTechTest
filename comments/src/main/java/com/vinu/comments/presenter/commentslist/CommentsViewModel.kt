@@ -35,6 +35,7 @@ class CommentsViewModel @Inject constructor(
                     .getCommentsList()
                     .firstOrNull()
                     ?.getOrDefault(emptyList())
+                    ?.sortedBy { comment -> comment.name.lowercase() }
                     ?: emptyList()
                 it.copy(
                     isLoading = false,

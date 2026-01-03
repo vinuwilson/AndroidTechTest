@@ -1,10 +1,12 @@
 package com.vinu.androidtechtest.navigation
 
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -19,7 +21,8 @@ fun Navigation() {
     Scaffold { innerPadding ->
         NavHost(
             modifier = Modifier
-                .padding(innerPadding),
+                .padding(innerPadding)
+                .consumeWindowInsets(innerPadding),
             navController = navController,
             startDestination = Comments
         ) {
@@ -27,8 +30,11 @@ fun Navigation() {
             composable<Comments> {
 
                 val viewModel = hiltViewModel<CommentsViewModel>()
+                val commentsState = viewModel.commentsList.collectAsStateWithLifecycle()
 
-                CommentsList()
+                CommentsList(
+                    state = commentsState.value
+                )
             }
         }
     }
