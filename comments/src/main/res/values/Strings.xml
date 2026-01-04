@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="title">Comments</string>
+    <string name="details">Comment Details</string>
     <string name="error_no_internet">Check your internet connection…</string>
+    <string name="back_arrow_icon">Back arrow icon</string>
+    <string name="id">ID</string>
+    <string name="email">Email</string>
 </resources>

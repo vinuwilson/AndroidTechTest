@@ -13,19 +13,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import com.vinu.comments.domain.model.CommentsItem
 import com.vinu.comments.utils.AppDimens
 
 @Composable
 fun SingleCommentView(
-    comment: CommentsItem
+    comment: CommentsItem,
+    onItemClicked: (Int) -> Unit
 ) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(AppDimens.appPadding)
+            .padding(AppDimens.largeAppPadding)
             .clickable {
-
+                onItemClicked(comment.id)
             },
         elevation = CardDefaults
             .elevatedCardElevation(AppDimens.cardElevation),
@@ -41,17 +43,12 @@ fun SingleCommentView(
                 text = comment.name,
                 fontSize = AppDimens.largeFontSize,
                 fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onBackground,
-                style = TextStyle(
-                    platformStyle = PlatformTextStyle(
-                        includeFontPadding = false
-                    )
-                )
+                color = MaterialTheme.colorScheme.onBackground
             )
 
             Text(
                 text = comment.body,
-                modifier = Modifier.padding(top = AppDimens.smallPadding),
+                modifier = Modifier.padding(top = AppDimens.appPadding),
                 fontSize = AppDimens.mediumFontSize,
                 color = MaterialTheme.colorScheme.onBackground,
                 style = TextStyle(
@@ -62,4 +59,19 @@ fun SingleCommentView(
             )
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun SingleCommentViewPreview() {
+    SingleCommentView(
+        comment = CommentsItem(
+            postId = 1,
+            id = 1,
+            name = "id labore ex et quam laborum",
+            email = "Eliseo@gardner.biz",
+            body = "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
+        ),
+        onItemClicked = {}
+    )
 }
