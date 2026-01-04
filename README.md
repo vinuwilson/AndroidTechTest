@@ -42,3 +42,8 @@ A sample app that showcase a list of comments, built in Kotlin using Jetpack Com
 * Furthermore cosmetics and refactoring is an endless thought.
 
 ## Snapshots
+
+<img width="1080" height="2400" alt="Screenshot-1" src="https://github.com/user-attachments/assets/f9f6ed26-4c9b-4673-86a2-2fb137f17537" />
+
+<img width="1080" height="2400" alt="Screenshot-2" src="https://github.com/user-attachments/assets/12132632-dbb6-47d1-901b-4a060e861f64" />
+
